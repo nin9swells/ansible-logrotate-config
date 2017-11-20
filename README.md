@@ -1,6 +1,6 @@
 # logrotate
 
-![Build Status](https://travis-ci.org/nickhammond/ansible-logrotate.svg?branch=master)
+![Build Status](https://travis-ci.org/traveloka/ansible-logrotate-config.svg?branch=master)
 
 Installs logrotate and provides an easy way to setup additional logrotate scripts by
 specifying a list of directives.
