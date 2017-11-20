@@ -11,6 +11,8 @@ None
 
 ## Role Variables
 
+**install_logrotate**: A boolean which tell whether logrotate should be installed or not
+
 **logrotate_scripts**: A list of logrotate scripts and the directives to use for the rotation.
 
 * name - The name of the script that goes into /etc/logrotate.d/
@@ -30,6 +32,8 @@ logrotate_scripts:
       - delaycompress
       - copytruncate
 ```
+
+**logrotate_run_hourly**: Set whether logrotate cron should run hourly (if true), or normally (daily). This assumes /etc/cron.daily/logrotate exists
 
 ## Dependencies
 
