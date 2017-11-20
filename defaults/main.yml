@@ -1,2 +1,3 @@
+install_logrotate: false
 logrotate_conf_dir: "/etc/logrotate.d/"
 logrotate_scripts: []

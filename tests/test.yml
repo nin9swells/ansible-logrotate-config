@@ -9,8 +9,16 @@
           path: /var/log/nginx/options.log
           options:
             - daily
+    - role: ansible-logrotate
+      install_logrotate: true
+      logrotate_scripts:
+        - name: nginx-options
+          path: /var/log/nginx/options.log
+          options:
+            - daily
 
     - role: ansible-logrotate
+      install_logrotate: true
       logrotate_scripts:
         - name: nginx-scripts
           path: /var/log/nginx/scripts.log
