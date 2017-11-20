@@ -2,14 +2,14 @@
 - hosts: all
   become: True
   roles:
-    - ansible-logrotate
-    - role: ansible-logrotate
+    - ansible-logrotate-config
+    - role: ansible-logrotate-config
       logrotate_scripts:
         - name: nginx-options
           path: /var/log/nginx/options.log
           options:
             - daily
-    - role: ansible-logrotate
+    - role: ansible-logrotate-config
       install_logrotate: true
       logrotate_scripts:
         - name: nginx-options
@@ -17,7 +17,7 @@
           options:
             - daily
 
-    - role: ansible-logrotate
+    - role: ansible-logrotate-config
       install_logrotate: true
       logrotate_scripts:
         - name: nginx-scripts
