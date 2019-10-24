@@ -17,5 +17,5 @@
     src: /etc/cron.daily/logrotate
     remote_src: yes
     dest: /etc/cron.hourly
-    mode: 0644
+    mode: 0755
   when: logrotate_run_hourly
