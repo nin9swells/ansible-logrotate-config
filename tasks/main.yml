@@ -1,21 +1,27 @@
 ---
-- name: nickhammond.logrotate | Install logrotate
+- name: ensure logrotate is installed
   package:
     name: logrotate
     state: present
   when: logrotate_scripts is defined and logrotate_scripts|length > 0 and install_logrotate
 
-- name: nickhammond.logrotate | Setup logrotate.d scripts
+- name: ensure logrotate scripts is installed
   template:
     src: logrotate.d.j2
     dest: "{{ logrotate_conf_dir }}{{ item.name }}"
   with_items: "{{ logrotate_scripts }}"
   when: logrotate_scripts is defined
 
-- name: copy logrotate from /etc/cron.daily to /etc/cron.hourly
+- name: ensure logrotate installed in /etc/cron.daily
   copy:
-    src: /etc/cron.daily/logrotate
-    remote_src: yes
+    src: logrotate
+    dest: /etc/cron.daily
+    mode: 0755
+  when: logrotate_run_daily
+
+- name: ensure logrotate installed in /etc/cron.hourly
+  copy:
+    src: logrotate
     dest: /etc/cron.hourly
     mode: 0755
   when: logrotate_run_hourly
